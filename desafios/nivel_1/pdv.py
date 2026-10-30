@@ -42,8 +42,15 @@ while True:
     lista_compras.append([valor_original, valor_final, cont_descontos])
 
 
-print('RESUMO DO DIA')
-print('Total de compras:', len(lista_compras))
-print('Total bruto: R$ %.2f' % sum(map(lambda x: x[0], lista_compras)))
-print('Total de descontos:', sum(map(lambda x: x[2], lista_compras)))
-print('Total final: R$ %.2f' % sum(map(lambda x: x[1], lista_compras)))
+texto = f'''
+RESUMO DO DIA
+Total de compras: {len(lista_compras)}
+Total bruto: R$ {sum(map(lambda x: x[0], lista_compras)):.2f}
+Total de descontos: {sum(map(lambda x: x[2], lista_compras)):.2f}
+Total final: R$ {sum(map(lambda x: x[1], lista_compras)):.2f}
+'''
+
+print(texto)
+
+with open('resumo.txt', 'w') as arquivo:
+    arquivo.write(texto)
