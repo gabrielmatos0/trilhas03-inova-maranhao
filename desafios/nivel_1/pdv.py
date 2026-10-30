@@ -58,4 +58,5 @@ Total final: R$ {sum(map(lambda x: x[1], lista_compras)):.2f}
 print(texto)
 
 with open('resumo.txt', 'w') as arquivo:
+    arquivo.write(str(lista_compras) + '\n')
     arquivo.write(texto)
